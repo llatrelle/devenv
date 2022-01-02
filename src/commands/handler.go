@@ -20,6 +20,9 @@ func ExecuteCommand(c *Command) {
 	case "create":
 		err := CreateCommand(c.Args)
 		handleError(err)
+	case "stop":
+		err := StopCommand(c.Args)
+		handleError(err)
 	default:
 		log.Print("devEnv: invalid command")
 	}
