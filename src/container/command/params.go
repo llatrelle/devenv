@@ -1,6 +1,8 @@
-package commands
+package command
 
-import "strings"
+import (
+	"strings"
+)
 
 type Param struct {
 	Key   string
@@ -10,7 +12,7 @@ type Params []Param
 
 type Command struct {
 	name string
-	Args []Param
+	Args Params
 }
 
 func (c *Command) ParseParams(args []string) {
@@ -57,4 +59,12 @@ func (p *Params) GetValue(k string) string {
 		}
 	}
 	return ""
+}
+
+func (p *Params) AddParam(key string) {
+	*p = append(*p, Param{Key: key})
+
+}
+func (p *Params) AddParamWithValue(key, value string) {
+	*p = append(*p, Param{Key: key, Value: value})
 }

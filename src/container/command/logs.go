@@ -1,4 +1,4 @@
-package commands
+package command
 
 import (
 	"context"
@@ -6,11 +6,12 @@ import (
 	"errors"
 	"github.com/docker/docker/api/types"
 	"io"
+	"io/ioutil"
 	"os"
 )
 
-//LogsCommand return in os.Stdout logs from container
-func LogsCommand(p Params) error {
+//Logs return in os.Stdout logs from container
+func Logs(p Params) error {
 
 	containerName := p.GetValue("-name")
 	if containerName == "" {
@@ -29,7 +30,7 @@ func LogsCommand(p Params) error {
 	if err != nil {
 		return err
 	}
-
+	ioutil.ReadAll(reader)
 	io.Copy(os.Stdout, reader)
 
 	return nil

@@ -1,13 +1,16 @@
 package app
 
 import (
-	"devEnv/src/commands"
+	"devEnv/src/container/command"
 )
 
-func Start(args []string) {
-
-	c := new(commands.Command)
+func Init(args []string) {
+	c := new(command.Command)
 	c.ParseParams(args)
-	commands.ExecuteCommand(c)
+	Exec(c)
+
+}
+
+func Serve() {
 
 }

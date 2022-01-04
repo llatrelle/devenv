@@ -7,5 +7,5 @@ import (
 
 func main() {
 	args := os.Args[1:]
-	app.Start(args)
+	app.Init(args)
 }

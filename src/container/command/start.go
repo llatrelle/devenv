@@ -1,4 +1,4 @@
-package commands
+package command
 
 import (
 	"context"
@@ -7,7 +7,7 @@ import (
 	"github.com/docker/docker/api/types"
 )
 
-func StartCommand(p Params) error {
+func Start(p Params) error {
 
 	containerName := p.GetValue("-name")
 	if containerName == "" {

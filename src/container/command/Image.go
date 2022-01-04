@@ -1,4 +1,4 @@
-package commands
+package command
 
 import (
 	"context"
@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-func PullImageCommand(p Params) error {
+func PullImage(p Params) error {
 
 	ctx := context.Background()
 	image := p.GetValue("-i")
@@ -32,7 +32,7 @@ func PullImageCommand(p Params) error {
 
 func ImageCommand(p Params) error {
 	if p.HaveArg("-pull") {
-		return PullImageCommand(p)
+		return PullImage(p)
 	}
 
 	return errors.New("invalid command")

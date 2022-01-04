@@ -1,4 +1,4 @@
-package commands
+package command
 
 func RunCommand(p Params) error {
 

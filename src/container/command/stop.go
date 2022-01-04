@@ -1,4 +1,4 @@
-package commands
+package command
 
 import (
 	"context"
@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func StopCommand(p Params) error {
+func Stop(p Params) error {
 	var err error
 	containerName := p.GetValue("-name")
 	timeout, _ := time.ParseDuration("30s")

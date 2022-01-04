@@ -1,4 +1,4 @@
-package commands
+package command
 
 import (
 	"context"
@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-func CreateCommand(p Params) error {
+func Create(p Params) error {
 	containerName := p.GetValue("-name")
 	cli, err := container.GetConnection()
 	if err != nil {

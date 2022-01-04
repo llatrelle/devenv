@@ -1,27 +1,33 @@
-package commands
+package app
 
-import "log"
+import (
+	"devEnv/src/container/command"
+	"log"
+)
 
-func ExecuteCommand(c *Command) {
+func Exec(c *command.Command) {
 
 	switch c.GetCommandName() {
 	case "ps":
-		err := PSCommand(c.Args)
+		err := command.PS(c.Args)
 		handleError(err)
 	case "logs":
-		err := LogsCommand(c.Args)
+		err := command.Logs(c.Args)
 		handleError(err)
 	case "image":
-		err := ImageCommand(c.Args)
+		err := command.PullImage(c.Args)
 		handleError(err)
 	case "start":
-		err := StartCommand(c.Args)
+		err := command.Start(c.Args)
 		handleError(err)
 	case "create":
-		err := CreateCommand(c.Args)
+		err := command.Create(c.Args)
 		handleError(err)
 	case "stop":
-		err := StopCommand(c.Args)
+		err := command.Stop(c.Args)
+		handleError(err)
+	case "serve":
+		err := StartHTTP()
 		handleError(err)
 	default:
 		log.Print("devEnv: invalid command")

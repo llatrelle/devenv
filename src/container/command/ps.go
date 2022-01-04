@@ -1,4 +1,4 @@
-package commands
+package command
 
 import (
 	"context"
@@ -7,8 +7,8 @@ import (
 	"log"
 )
 
-//PSCommand List docker containers
-func PSCommand(p Params) error {
+//PS List docker containers
+func PS(p Params) error {
 	cli, err := container.GetConnection()
 	if err != nil {
 		log.Printf("connection error...")
