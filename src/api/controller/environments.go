@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"devEnv/src/api/common"
 	"devEnv/src/container/command"
 	"net/http"
 )
@@ -8,6 +9,10 @@ import (
 func GetEnvironments(w http.ResponseWriter, r *http.Request) {
 	p := new(command.Params)
 	p.AddParam("-all")
-	command.PS(*p)
-	w.Write([]byte("asd"))
+	envs, err := command.PS(*p)
+	if err != nil {
+		common.Success(w, err)
+	}
+	common.Success(w, envs)
+
 }

@@ -9,8 +9,13 @@ func Exec(c *command.Command) {
 
 	switch c.GetCommandName() {
 	case "ps":
-		err := command.PS(c.Args)
+		envs, err := command.PS(c.Args)
 		handleError(err)
+
+		for _, e := range envs {
+			log.Printf("%v", e.ToString())
+		}
+
 	case "logs":
 		err := command.Logs(c.Args)
 		handleError(err)
